@@ -1899,7 +1899,7 @@ const client = new MongoClient(uri, {
 
 // const JWKS = createRemoteJWKSet(new URL("http://localhost:3000/api/auth/jwks")
 // (2)
-const JWKS = createRemoteJWKSet(new URL(`${process.env.CLIENT.URL}/api/auth/jwks`));
+const JWKS = createRemoteJWKSet(new URL(`${process.env.CLIENT_URL}/api/auth/jwks`));
 
 const verifyToken = async(req, res, next) => {
   const authHeader = req?.headers.authorization
@@ -2008,7 +2008,7 @@ app.delete('/booking/:bookingId', verifyToken, async (req, res) => {
   res.json(result)
 })
 //-------------------------------
-// (4)COMMIT then create vercel.json file and put some json
+// (4)COMMIT then create vercel.json file and put some json and then deploy vercel . to to vercel/by command
     // await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfuly connected to MongoDB!");
   } finally {
